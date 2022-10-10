@@ -31,7 +31,7 @@ class Snippet(models.Model):
         options = {'title': self.title} if self.title else {}
         formatter = HtmlFormatter(style=self.style, linenos=linenos,
                                 full=True, **options)
-        self.highlighted = highlight(self.code, lexer, formatter)
+        self.highlighted = highlight(self.title, lexer, formatter)
         super().save(*args, **kwargs)
     
     class Meta:
